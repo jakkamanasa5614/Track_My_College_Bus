@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track My Bus</title>
+    <link rel="stylesheet" href="./alter.css">
+    
+    <style>
+        /* Optional: Custom styles */
+        .navbar {
+            background-color: #f8f9fa; /* Light background */
+        }
+    </style>
+    <script>
+        function handleLogin(userType) {
+            const username = document.querySelector(`#${userType}Login input[name="username"]`).value;
+            const password = document.querySelector(`#${userType}Login input[name="password"]`).value;
+    
+            fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password, userType })
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);  // Shows the login status
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+   
+   
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.NTJWa5BQcr2ED-HeaZEjtAAAAA&pid=Api&P=0&h=180" alt="HITAM Logo">
+        </div>
+        <div class="header-text">
+            <p class=" main_heading">Counselling Code: <span class="span">HITM</span></p>
+            
+            <h1>HYDERABAD INSTITUTE OF TECHNOLOGY AND MANAGEMENT</h1>
+            <p class="main_heading">Accredited by NAAC, Affiliated to JNTUH, Approved by AICTE</p>
+        </div>
+    </header>
+    <main class="blur-background">
+        <div class="login-container">
+            <section class="login">
+                <h2>Employee Login</h2>
+                <form  method="post" name="form" onsubmit="return validated()">
+                    <label for="emp_username" >User_Name</label>
+                    <input autocomplete="off" type="text" id="emp_username" name="emp_username">
+                    <div id="email_error">please fill up your username</div>
+                    <label for="emp_password">Password</label>
+                    <input type="password" id="emp_password" name="emp_password">
+                    <div id="pass_error">please fill up your password</div>
+                    <button type="submit" onclick="handleLogin('employee')">LOGIN</button>
+                </form>
+            </section>
+
+
+            <section class="login">
+                <h2>Student Login</h2>
+                <form method="post" name="form" onsubmit="return verified()">
+                    <label for="stu_username">User_Name</label>
+                    <input type="text" id="stu-username" name="stu_username" value="">
+                    <div id="user_error">please fill up your username</div>
+                    <label for="stu_password">Password</label>
+                    <input type="password" id="stu_password" name="stu_password">
+                    <div id="pas_error">please fill up your password</div>
+                    <button type="submit" onclick="handleLogin('student')">LOGIN</button>
+                </form>
+            </section>
+        </div>
+            
+        
+            
+        
+    </main>
+    
+    <script src="alter.js"></script>
+    <script src="login.js"></script>
+    
+</body>
+    
+    
+    
+
+</html>

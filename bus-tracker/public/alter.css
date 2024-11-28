@@ -1,0 +1,253 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+header {
+    background-color:#1F8941;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.logo img {
+    height: 120px;
+    margin-right: 20px;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header-text p {
+    margin: 5px 0;
+}
+
+main {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; /* Ensures full-width alignment */
+    position: relative;
+	
+}
+
+
+.login {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.login h2 {
+    margin-top: 0;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login label {
+    margin-top: 10px;
+}
+
+.login input {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login button:hover{
+	background: #151c6a;
+}
+
+.blur-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://hitam.org/wp-content/uploads/2022/07/Transportation-mob.jpg'); 
+    background-size: cover;
+    filter: blur(0px); 
+    z-index: -1; 
+    background-position: center;
+}
+.main_heading{
+    color: #72C28D;
+    padding-bottom: 25px;
+}
+.span{
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.bg2{
+    
+    background: radial-gradient(#1F8941,#80eba1,#1F8941);
+
+    background-size: cover;
+    height:800px;
+    
+    border-color: black;
+    border-style:ridge;
+    box-shadow: 100px;
+    
+    
+
+}
+.section1_allign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.section1_allign2{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+   
+    
+}
+.text{
+    background-color: whitesmoke;
+    width: 250px;
+    height: 60px;
+    color: black;
+    text-transform: capitalize;
+    text-shadow: 2px;
+    font-family: "sain serif";
+    border-radius: 10px;
+    font-size: 20px;
+    
+    
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar-icon {
+    float: left;
+    color: white;
+    font-size: 30px;
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.navbar-menu {
+    display: none; /* Initially hide the menu */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-menu li {
+    float: none; /* Stack items vertically */
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    background-color: #333; /* Same as navbar */
+}
+
+.navbar-menu li a:hover {
+    background-color: #575757;
+}
+.navbar-toggler-icon {
+    background-image: url('path/to/your/custom-icon.png'); /* Custom icon if needed */
+}
+
+
+.login #email_error,
+.login #pass_error{
+	margin-top: 5px;
+	width: 345px;
+	font-size: 18px;
+	color: #C62828;
+	background: rgba(255,0,0,0.1);
+	text-align: center;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid #EF9A9A;
+	display: none;
+}
+
+.login #user_error,
+.login #pas_error{
+	margin-top: 5px;
+	width: 345px;
+	font-size: 18px;
+	color: #C62828;
+	background: rgba(255,0,0,0.1);
+	text-align: center;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid #EF9A9A;
+	display: none;
+}
+.container {
+    width: 80%;
+    max-width: 400px; /* Max width of the container */
+    margin: 50px auto; /* Center the container and add margin from top */
+    padding: 30px;
+    background-image: radial-gradient(circle, #12ad46, #97f1b2);/* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-left: 0; /* Adjust this value as needed */ 
+    float: left; /
+    
+
+}
+.head{
+    flex-direction: column;
+    justify-content: start;
+    margin-left: 0%;
+    margin-top: 80px;
+    margin: 50px;
+    
+    
+}
+
+
+
+

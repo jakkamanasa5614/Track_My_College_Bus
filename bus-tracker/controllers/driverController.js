@@ -1,4 +1,4 @@
-const DriverLocation = require('../models/driverlocation');
+const DriverLocation = require('./models/driverlocation');
 
 exports.updateLocation = async (req, res) => {
   const { driverId, latitude, longitude } = req.body;

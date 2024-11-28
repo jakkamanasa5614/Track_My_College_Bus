@@ -1,0 +1,72 @@
+/* General styling */
+
+
+/* Content styling */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #161616;
+}
+
+label {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+    color: #121212;
+}
+
+select {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+#routeInfo {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    #routeInfo {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+.container {
+    width: 80%;
+    max-width: 600px; /* Max width of the container */
+    margin: 50px auto; /* Center the container and add margin from top */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-left: 0; /* Adjust this value as needed */ 
+    float: left; /
+    
+
+}
+.head{
+    flex-direction: column;
+    justify-content: start;
+    margin-left: 0%;
+    margin-top: 80px;
+    background-image: radial-gradient(circle, #3fec5c, #89d2b9);
+    
+    
+}

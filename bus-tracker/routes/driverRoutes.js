@@ -1,18 +1,15 @@
 const express = require('express');
+const Route = require('../models/route'); // Adjust path if needed
 const router = express.Router();
-const driverController = require('../controllers/driverController'); // Ensure this path is correct
 
-// Log the imported controller
-console.log(driverController); 
-
-// Test the functions individually
-console.log('Update Location Function:', driverController.updateLocation);
-console.log('Get Location Function:', driverController.getLocation);
-
-// Route to update driver's location
-router.get('/location', getLocation);
-
-// Route for updating location
-router.post('/location', updateLocation)
+// Route to get all bus route information
+router.get('/route-info', async (req, res) => {
+    try {
+        const routes = await Route.find();  // Fetch all bus routes
+        res.json(routes);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
 module.exports = router;

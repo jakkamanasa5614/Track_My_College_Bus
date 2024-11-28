@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Route Information</title>
+</head>
+<body>
+    <div id="routeInfo">
+        <!-- Bus route information will be displayed here -->
+    </div>
+
+    <script>
+        // Fetch route data from the server
+        fetch('/api/route-info')
+            .then(response => response.json())
+            .then(data => {
+                const routeInfoDiv = document.getElementById('routeInfo');
+                data.forEach(route => {
+                    // Create a container div for each route
+                    const routeDetails = document.createElement('div');
+                    routeDetails.classList.add('route-details');
+                    
+                    // Add route information dynamically
+                    routeDetails.innerHTML = `
+                        <h3>${route.routeName}</h3>
+                        <p><strong>Start Point:</strong> ${route.startPoint}</p>
+                        <p><strong>End Point:</strong> ${route.endPoint}</p>
+                        <p><strong>Stops:</strong> ${route.stops.join(', ')}</p>
+                        <p><strong>Driver:</strong> ${route.driverName}</p>
+                    `;
+                    
+                    // Append the route details to the routeInfo div
+                    routeInfoDiv.appendChild(routeDetails);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching route information:', error);
+            });
+    </script>
+</body>
+</html>

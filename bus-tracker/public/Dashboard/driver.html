@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <h2>Driver Dashboard</h2>
+  <p>Update your location in real-time.</p>
+  <button id="update-location">Share My Location</button>
+
+  <script src="../js/socket.js"></script>
+  <script>
+    document.getElementById("update-location").addEventListener("click", async () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const { latitude, longitude } = position.coords;
+          const token = localStorage.getItem("token");
+          const response = await fetch("/driver/location", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ latitude, longitude }),
+          });
+          const data = await response.json();
+          alert(data.message || "Location updated!");
+        });
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    });
+  </script>
+</body>
+</html>

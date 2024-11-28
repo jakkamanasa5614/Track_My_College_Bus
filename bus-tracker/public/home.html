@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Routes - HITAM</title>
+    
+    <link rel="stylesheet" href="./alter.css">
+   
+   
+    
+</head>
+
+    <header>
+        <div class="logo">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.NTJWa5BQcr2ED-HeaZEjtAAAAA&pid=Api&P=0&h=180" alt="HITAM Logo">
+        </div>
+        <div class="header-text">
+            <p class=" main_heading">Counselling Code: <span class="span">HITM</span></p>
+            
+            <h1>HYDERABAD INSTITUTE OF TECHNOLOGY AND MANAGEMENT</h1>
+            <p class="main_heading">Accredited by NAAC, Affiliated to JNTUH, Approved by AICTE</p>
+        </div>
+    </header>
+    <div class="head">
+        <div class="container">
+            <h1>Bus Routes - HITAM</h1>
+    
+            <label for="routeSelect">Select Bus Route:</label>
+            <select id="routeSelect" onchange="updateRouteInfo()">
+                <option value="">--Select Route--</option>
+                <option value="route1">Route 1</option>
+                <option value="route2">Route 2</option>
+                <option value="route3">Route 3</option>
+                <option value="route4">Route 4</option>
+                <option value="route5">Route 5</option>
+                <option value="route6">Route 6</option>
+                <option value="route7">Route 7</option>
+                <option value="route8">Route 8</option>
+                <option value="route9">Route 9</option>
+                <option value="route10">Route 10</option>
+                <option value="route11">Route 11</option>
+                <option value="route12">Route 12</option>
+                <option value="route13">Route 13</option>
+                <option value="route14">Route 14</option>
+                <option value="route15">Route 15</option>
+                <option value="route16">Route 16</option>
+                <option value="route17">Route 17</option>
+                <option value="route18">Route 18</option>
+                <option value="route19">Route 19</option>
+                <option value="route20">Route 20</option>
+            </select>
+        </div>
+    </div>
+    
+
+    <div id="routeInfo">
+        <!-- Bus route information will be displayed here -->
+    </div>
+</main>
+
+    <script>
+        function updateRouteInfo() {
+            var route = document.getElementById("routeSelect").value;
+            var routeInfo = document.getElementById("routeInfo");
+            
+            if (route === "route1") {
+                 info = ` <p><strong>Route 1:</strong> HITAM to ABC Area</p>
+                <p><strong>Bus Number:</strong> TS09XX1234</p> 
+                <p><strong>Driver Name:</strong> John Doe</p>
+                <p><strong>Driver Mobile:</strong> 9876543210</p>
+                <p><strong>Stops:</strong> HITAM, X Area, Y Area, ABC Area</p> `;
+            } else if (route === "route2") { info = ` <p><strong>Route 2:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 2: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route3") { info = ` <p><strong>Route 3:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> mahesh</p> 
+                <p><strong>Driver Mobile:</strong> 8332989725</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 3: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route4") { info = ` <p><strong>Route 4:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5673</p>
+                <p><strong>Driver Name:</strong>Ruthik</p> 
+                <p><strong>Driver Mobile:</strong> 8678567888</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 4: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route5") { info = ` <p><strong>Route 5:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5658</p>
+                <p><strong>Driver Name:</strong> Sairam</p> 
+                <p><strong>Driver Mobile:</strong> 9392498359</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 5: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route6") { info = ` <p><strong>Route 6:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5478</p>
+                <p><strong>Driver Name:</strong>ram </p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 6: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route7") { info = ` <p><strong>Route 7:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY55678</p>
+                <p><strong>Driver Name:</strong> karthik</p> 
+                <p><strong>Driver Mobile:</strong> 9768957397</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 7: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route8") { info = ` <p><strong>Route 8:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5458</p>
+                <p><strong>Driver Name:</strong> Laxman</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 8: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route9") { info = ` <p><strong>Route 9:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY58678</p>
+                <p><strong>Driver Name:</strong> Venu</p> 
+                <p><strong>Driver Mobile:</strong> 789609876</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 9: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route10") { info = ` <p><strong>Route 10:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5548</p>
+                <p><strong>Driver Name:</strong> Sagar</p> 
+                <p><strong>Driver Mobile:</strong> 8964432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 10: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route11") { info = ` <p><strong>Route 11:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5577</p>
+                <p><strong>Driver Name:</strong> Preetham</p> 
+                <p><strong>Driver Mobile:</strong> 9876754321</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 11: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route12") { info = ` <p><strong>Route 12:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 12: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route13") { info = ` <p><strong>Route 13:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 13: HITAM to GHI Area</p>";
+            }
+            
+           
+            else if (route === "route14") { info = ` <p><strong>Route 14:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 14: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route15") { info = ` <p><strong>Route 2:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 3: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route16") { info = ` <p><strong>Route 16:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 16: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route17") { info = ` <p><strong>Route 17:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 17: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route18") { info = ` <p><strong>Route 18:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 18: HITAM to GHI Area</p>";
+            }
+            
+            else if (route === "route19") { info = ` <p><strong>Route 19:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 19: HITAM to GHI Area</p>";
+            }
+            else if (route === "route20") { info = ` <p><strong>Route 20:</strong> HITAM to DEF Area</p>
+                <p><strong>Bus Number:</strong> TS09YY5678</p>
+                <p><strong>Driver Name:</strong> Jane Smith</p> 
+                <p><strong>Driver Mobile:</strong> 8765432109</p> 
+                <p><strong>Stops:</strong> HITAM, A Area, B Area, DEF Area</p> `;
+                routeInfo.innerHTML = "<p>Route 20: HITAM to GHI Area</p>";
+            }
+            
+           
+            else {
+                routeInfo.innerHTML = "<p>Please select a route.</p>";
+            }
+        }
+    </script>
+    
+</body>
+</html>
