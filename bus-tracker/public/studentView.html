@@ -1,0 +1,149 @@
+<!-- studentView.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track My Bus - Student View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 60%;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #busInfo {
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+            margin-top: 1rem;
+        }
+
+        #busInfo p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Track My Bus</h1>
+    </header>
+    <main>
+        <h1>Bus Information</h1>
+        <form id="routeForm">
+            <label for="route">Enter Route:</label>
+            <input type="text" id="route" name="route" placeholder="e.g., Route A">
+            <button type="submit">Get Bus Info</button>
+        </form>
+        <div id="busInfo"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Track My Bus. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('routeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const route = document.getElementById('route').value;
+
+            if (!route) {
+                alert("Route is required");
+                return;
+            }
+
+            const response = await fetch(`http://localhost:5000/api/student/get-bus-location?route=${route}`);
+            const data = await response.json();
+
+            const busInfo = document.getElementById('busInfo');
+            if (response.ok) {
+                busInfo.innerHTML = `
+                    <p><strong>Bus Number:</strong> ${data.busNumber}</p>
+                    <p><strong>Driver Name:</strong> ${data.driverName}</p>
+                    <p><strong>Route:</strong> ${data.route}</p>
+                    <p><strong>Stops:</strong> ${data.busStops.join(', ')}</p>
+                    <p><strong>Location:</strong> <a href="${data.locationUrl}" target="_blank">View on Map</a></p>
+                `;
+            } else {
+                busInfo.innerHTML = `<p>${data.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

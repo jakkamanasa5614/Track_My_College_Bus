@@ -1,0 +1,86 @@
+<!-- driverDashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form, .actions {
+            width: 300px;
+            margin: auto;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Driver Dashboard</h1>
+
+    <form id="driverForm">
+        <input type="text" id="driverName" placeholder="Driver Name" required>
+        <input type="text" id="busNumber" placeholder="Bus Number" required>
+        <input type="text" id="route" placeholder="Bus Route" required>
+        <button type="button" onclick="startSharing()">Start Sharing Location</button>
+        <p id="statusMessage" style="color: green;"></p>
+    </form>
+
+    <script>
+        let intervalId;
+
+        function startSharing() {
+            const driverName = document.getElementById('driverName').value;
+            const busNumber = document.getElementById('busNumber').value;
+            const route = document.getElementById('route').value;
+
+            if (!driverName || !busNumber || !route) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            if (navigator.geolocation) {
+                intervalId = setInterval(() => {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        fetch('http://localhost:5000/api/driver/share-location', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ driverName, busNumber, route, latitude, longitude }),
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                document.getElementById('statusMessage').textContent = data.message;
+                            })
+                            .catch(error => console.error('Error sharing location:', error));
+                    });
+                }, 5000); // Send location every 5 seconds
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function stopSharing() {
+            clearInterval(intervalId);
+            document.getElementById('statusMessage').textContent = 'Location sharing stopped.';
+        }
+    </script>
+</body>
+</html>

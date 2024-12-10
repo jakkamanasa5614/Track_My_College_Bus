@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard</title>
+    <style>
+        /* Global Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://tse2.mm.bing.net/th?id=OIP.vG6csVbPEf7qRHAwD-U6SgHaEK&pid=Api&P=0&h=180'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Overlay to darken the background */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+            z-index: -1; /* Ensures the overlay stays behind the content */
+        }
+
+        /* Main container for form */
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for form */
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Form element styles */
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Response message style */
+        #responseMessage {
+            color: green;
+            margin-top: 10px;
+        }
+
+        /* Title and heading styling */
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Driver Dashboard</h1>
+    <div class="container">
+        <h2>Share Bus Location</h2>
+        <form id="locationForm">
+            <label for="busNumber">Bus Number:</label>
+            <input type="text" id="busNumber" name="busNumber" required><br>
+            <label for="driverName">Driver Name:</label>
+            <input type="text" id="driverName" name="driverName" required><br>
+            <label for="route">Route:</label>
+            <input type="text" id="route" name="route" required><br>
+            <button type="button" onclick="startLocationSharing()">Start Sharing Location</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script>
+        let locationInterval;
+
+        // Function to start sharing location
+        function startLocationSharing() {
+            const busNumber = document.getElementById("busNumber").value;
+            const driverName = document.getElementById("driverName").value;
+            const route = document.getElementById("route").value;
+
+            if (navigator.geolocation) {
+                // Get current position
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const { latitude, longitude } = position.coords;
+
+                    // Start sharing the location every 5 seconds
+                    locationInterval = setInterval(() => {
+                        shareLocation(busNumber, driverName, route, latitude, longitude);
+                    }, 5000);
+                    
+                    // Initial location sharing
+                    shareLocation(busNumber, driverName, route, latitude, longitude);
+                    
+                    document.getElementById("responseMessage").textContent = "Location sharing started!";
+                }, (error) => {
+                    alert('Error getting location: ' + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to share location with the backend
+        function shareLocation(busNumber, driverName, route, latitude, longitude) {
+            const locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+            fetch("http://localhost:5000/api/driver/share-location", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    busNumber,
+                    driverName,
+                    route,
+                    locationUrl,
+                    locationLat: latitude,  // Ensure latitude is sent
+                    locationLng: longitude,  // Ensure longitude is sent
+                    busStops: ["Stop A", "Stop B", "Stop C"] // Example bus stops
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result.message);
+            })
+            .catch(error => {
+                console.error('Error sharing location:', error);
+            });
+        }
+    </script>
+</body>
+</html>

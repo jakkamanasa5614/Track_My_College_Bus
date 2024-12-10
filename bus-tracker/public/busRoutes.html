@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track My Bus - Select Route</title>
+    <style>
+        /* Global Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; /* Light background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Main container for the content */
+        .container {
+            background: #ffffff; /* White background for the container */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Heading styles */
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Select box styling */
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green when hovered */
+        }
+
+        /* Optional styling for spacing and responsiveness */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Bus Route</h1>
+        <select id="routeSelect">
+            <option value="Route 1">Route 1</option>
+            <option value="Route 2">Route 2</option>
+            <option value="Route 3">Route 3</option>
+            <option value="route4">Route 4</option>
+            <option value="route5">Route 5</option>
+            <option value="route6">Route 6</option>
+            <option value="route7">Route 7</option>
+            <option value="route8">Route 8</option>
+            <option value="route9">Route 9</option>
+            <option value="route10">Route 10</option>
+            <option value="route11">Route 11</option>
+            <option value="route12">Route 12</option>
+            <option value="route13">Route 13</option>
+            <option value="route14">Route 14</option>
+            <option value="route15">Route 15</option>
+            <option value="route16">Route 16</option>
+            <option value="route17">Route 17</option>
+            <option value="route18">Route 18</option>
+            <option value="route19">Route 19</option>
+            <option value="route20">Route 20</option>
+        </select>
+        <button onclick="fetchBusDetails()">View Bus Details</button>
+    </div>
+
+    <script>
+        function fetchBusDetails() {
+            const route = document.getElementById('routeSelect').value;
+            localStorage.setItem('route', route); // Store selected route in localStorage
+            window.location.href = 'studentView.html'; // Redirect to student view
+        }
+    </script>
+</body>
+</html>
